@@ -1,0 +1,9 @@
+# Makefile
+
+init:
+	go get github.com/golang/protobuf/protoc-gen-go
+	go get -u google.golang.org/grpc
+	go mod download
+
+generate:
+	go generate ./...

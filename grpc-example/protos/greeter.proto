@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package grpcapi;
+
+option go_package = "/helloworld"; // *.pb.go 파일이 생성될 위치
+
+service GreeterService {
+  rpc SayHello(SayHelloRequest) returns (SayHelloResponse);
+}
+
+message SayHelloRequest {
+  string request_message = 1;
+}
+
+message SayHelloResponse {
+  int32 response_code = 1;
+  string response_message = 2;
+}
