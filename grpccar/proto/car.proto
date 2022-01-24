@@ -17,19 +17,3 @@ message CarReply {
   string message = 2;
 }
 
-// The greeting service definition.
-service Finder {
-  // Sends a greeting
-  rpc FindFile (FileRequest) returns (FileReply) {}
-}
-
-// The request message containing the user's name.
-message FileRequest {
-  string kind = 1;
-}
-
-// The response message containing the greetings
-message FileReply {
-  string message = 2;
-}
-

@@ -3,8 +3,8 @@ package main
 import (
 	"flag"
 	"fmt"
-	chandler "grpccar/handler/maker"
 	fhandler "grpccar/handler/finder"
+	chandler "grpccar/handler/maker"
 	car "grpccar/pb/car"
 	diction "grpccar/pb/diction"
 	"log"
@@ -18,10 +18,6 @@ var (
 )
 
 // server is used to implement helloworld.GreeterServer.
-type server struct {
-	car.UnimplementedMakerServer
-	diction.UnimplementedFinderServer
-}
 
 func main() {
 	flag.Parse()

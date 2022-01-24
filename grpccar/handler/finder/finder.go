@@ -1,4 +1,4 @@
-package handler
+package finder
 
 import (
 	diction "grpccar/pb/diction"
