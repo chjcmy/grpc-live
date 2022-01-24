@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option go_package = "/car";
+
+package pb;
+
+// The greeting service definition.
+service Greeter {
+  // Sends a greeting
+  rpc MakeCar (CarRequest) returns (CarReply) {}
+}
+
+// The request message containing the user's name.
+message CarRequest {
+  string name = 1;
+  int64 num = 2;
+}
+
+// The response message containing the greetings
+message CarReply {
+  repeated string message = 4;
+}
+
