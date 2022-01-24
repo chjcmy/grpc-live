@@ -3,7 +3,7 @@ package handler
 import (
 	"context"
 	"fmt"
-	pb "grpccar/car"
+	car "grpccar/pb/car"
 	"log"
 	"strconv"
 	"strings"
@@ -21,11 +21,11 @@ type Car struct {
 }
 
 type Serviceserver struct {
-	pb.UnimplementedGreeterServer
+	car.UnimplementedMakerServer
 }
 
-func (s *Serviceserver) MakeCar(ctx context.Context, in *pb.CarRequest) (*pb.CarReply, error) {
-	log.Printf("Received: %v, %d", in.GetName(), in.GetNum())
+func (s *Serviceserver) MakeCar(ctx context.Context, in *car.CarRequest) (*car.CarReply, error) {
+	log.Printf("Received: %s", in.GetKind())
 
 	tirech := make(chan *Car)
 	paintch := make(chan *Car)
@@ -36,9 +36,7 @@ func (s *Serviceserver) MakeCar(ctx context.Context, in *pb.CarRequest) (*pb.Car
 	go InstallTire(tirech, paintch)
 	go PaintCar(paintch, starch)
 
-	var msg = <-starch
-
-	return &pb.CarReply{Message: *msg}, nil
+	return &car.CarReply{Message: "hellow"}, nil
 }
 
 func MakeBody(tireCh chan *Car) {

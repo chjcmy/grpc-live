@@ -5,5 +5,8 @@ init:
 	go get google.golang.org/grpc
 	go mod download
 
-generate:
-	go generate ./...
+car: ./proto/car.proto
+	protoc ./proto/car.proto --go_out=./pb --go-grpc_out=./pb
+
+diction: ./proto/diction.proto
+	protoc ./proto/diction.proto --go_out=./pb --go-grpc_out=./pb
