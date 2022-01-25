@@ -13,9 +13,12 @@ service Finder {
 // The request message containing the user's name.
 message FileRequest {
   string kind = 1;
+  string word = 2;
+  repeated string filename =3;
 }
 
 // The response message containing the greetings
 message FileReply {
-  string message = 2;
+  repeated string message = 4;
+  string time = 5;
 }
